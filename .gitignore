@@ -1,0 +1,9 @@
+monitor
+*.ko
+*.o
+*.mod
+*.mod.c
+*.symvers
+modules.order
+Module.symvers
+.*.cmd
