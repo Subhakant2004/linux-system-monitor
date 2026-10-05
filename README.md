@@ -68,25 +68,31 @@ The project obtains information from:
 
 ## 5. System Architecture
 
+<pre>
 monitor.cpp
-     ↓
-/dev/sysmon
-     ↓
-sysmon.ko
-     ↓
+     |
+     v
+ /dev/sysmon
+     |
+     v
+ sysmon.ko
+     |
+     v
 Linux Kernel
 
-Additional system information:
+Additional information:
  /proc/stat
  /proc/meminfo
  /proc/<PID>/comm
-     ↓
+     |
+     v
 monitor.cpp
-     ↓
+     |
+     v
 Final System Monitor Output
+</pre>
 
 All collected information is finally processed by monitor.cpp and displayed as the final system-monitoring output.
-
 
 ## 6. Project Structure
 
