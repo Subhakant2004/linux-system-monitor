@@ -76,7 +76,6 @@ The project consists of two main execution environments:
 
 The main communication flow is:
 
-```text
 monitor.cpp
      |
      v
