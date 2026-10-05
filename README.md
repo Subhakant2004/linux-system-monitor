@@ -66,68 +66,24 @@ The project obtains information from:
 3. /proc/meminfo
 4. /proc/<PID>/comm
 
-
 ## 5. System Architecture
 
-The project consists of two main execution environments:
-
-1. Kernel Space
-2. User Space
-
-The main communication flow is:
-
 monitor.cpp
-    |
-    v
+     ↓
 /dev/sysmon
-    |
-    v
+     ↓
 sysmon.ko
-    |
-    v
+     ↓
 Linux Kernel
 
-Additional information is obtained from:
-
-/proc/stat
-    |
-    v
-CPU Statistics
-
-/proc/meminfo
-    |
-    v
-Memory Information
-
-/proc/<PID>/comm
-    |
-    v
-Process Names
-
-The complete architecture is:
-
-LINUX SYSTEM
-
-KERNEL SPACE                         USER SPACE
-
-sysmon.c                             monitor.cpp
-    |                                     |
-    v                                     |
-sysmon.ko                                |
-    |                                     |
-    v                                     |
-/dev/sysmon <-----------------------------+
-    |
-    v
-Linux Kernel
-    |
-CPU / Memory / Uptime
-
-Additional Data:
-
-/proc/stat
-/proc/meminfo
-/proc/<PID>/comm
+Additional system information:
+ /proc/stat
+ /proc/meminfo
+ /proc/<PID>/comm
+     ↓
+monitor.cpp
+     ↓
+Final System Monitor Output
 
 All collected information is finally processed by monitor.cpp and displayed as the final system-monitoring output.
 
